@@ -37,9 +37,9 @@ const Contact = () => {
             transition={{ duration: 0.6 }}
             className="text-center mb-16"
           >
-            <p className="text-primary text-sm font-medium tracking-widest uppercase mb-2">Contato</p>
+            <p className="text-sky-500 text-sm font-medium tracking-widest uppercase mb-2">Contato</p>
             <h1 className="text-4xl md:text-6xl font-heading font-bold mb-4">
-              Vamos <span className="text-gradient">conversar?</span>
+              Vamos <span className="text-transparent bg-clip-text bg-gradient-to-r from-sky-500 via-blue-300 to-sky-500 bg-[length:200%_auto] hover:bg-right transition-all duration-500">conversar?</span>
             </h1>
             <p className="text-muted-foreground text-lg max-w-xl mx-auto">
               Conte-me sobre seu projeto. Estou disponível para freelances e colaborações.
@@ -58,11 +58,11 @@ const Contact = () => {
                 <h3 className="font-heading font-semibold text-lg mb-4">Informações</h3>
                 <div className="space-y-4 text-muted-foreground">
                   <div className="flex items-center gap-3">
-                    <Mail size={18} className="text-primary" />
+                    <Mail size={18} className="text-sky-500" />
                     <span>bgoficial2022@gmail.com</span>
                   </div>
                   <div className="flex items-center gap-3">
-                    <MapPin size={18} className="text-primary" />
+                    <MapPin size={18} className="text-sky-500" />
                     <span>Brasil</span>
                   </div>
                 </div>
@@ -71,14 +71,14 @@ const Contact = () => {
               <div>
                 <h3 className="font-heading font-semibold text-lg mb-4">Redes Sociais</h3>
                 <div className="flex gap-4">
-                  <a href="https://www.instagram.com/therealluiiz/" className="p-3 rounded-lg bg-card border border-border hover:border-primary/50 transition-colors">
-                    <Instagram size={20} className="text-muted-foreground hover:text-primary" />
+                  <a href="https://www.instagram.com/therealluiiz/" className="p-3 rounded-lg bg-card border border-border hover:border-sky-500/50 transition-colors">
+                    <Instagram size={20} className="text-muted-foreground hover:text-sky-500" />
                   </a>
-                  <a href="https://www.linkedin.com/in/luiz-otavio-dev/" className="p-3 rounded-lg bg-card border border-border hover:border-primary/50 transition-colors">
-                    <Linkedin size={20} className="text-muted-foreground hover:text-primary" />
+                  <a href="https://www.linkedin.com/in/luiz-otavio-dev/" className="p-3 rounded-lg bg-card border border-border hover:border-sky-500/50 transition-colors">
+                    <Linkedin size={20} className="text-muted-foreground hover:text-sky-500" />
                   </a>
-                  <a href="/" className="p-3 rounded-lg bg-card border border-border hover:border-primary/50 transition-colors">
-                    <Globe size={20} className="text-muted-foreground hover:text-primary" />
+                  <a href="/" className="p-3 rounded-lg bg-card border border-border hover:border-sky-500/50 transition-colors">
+                    <Globe size={20} className="text-muted-foreground hover:text-sky-500" />
                   </a>
                 </div>
               </div>
@@ -130,7 +130,7 @@ const Contact = () => {
                   <SelectTrigger className="mt-1.5">
                     <SelectValue placeholder="Selecione uma opção" />
                   </SelectTrigger>
-                  <SelectContent>
+                  <SelectContent className="">
                     <SelectItem value="motion">Motion Graphics</SelectItem>
                     <SelectItem value="social">Social Media</SelectItem>
                     <SelectItem value="edit">Edição de Vídeo</SelectItem>
@@ -152,7 +152,7 @@ const Contact = () => {
                   className="mt-1.5"
                 />
               </div>
-              <Button type="submit" size="lg" className="w-full glow-primary">
+              <Button type="submit" size="lg" className="w-full glow-primary font-medium bg-gradient-to-r from-sky-500 via-white to-sky-500 bg-[length:200%_auto] hover:bg-right transition-all duration-500 text-black shadow-[0_0_20px_-5px_oklch(68.5% 0.169 237.323)] border-0 px-8">
                 Enviar Mensagem <Send className="ml-2" size={16} />
               </Button>
             </motion.form>

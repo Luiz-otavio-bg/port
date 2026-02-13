@@ -18,7 +18,7 @@ export interface Project {
 export const projects: Project[] = [
   {
     id: "motion-reel-2024",
-    title: "Motion Design",
+    title: "Motion Bouncy",
     category: "Motion Design",
     description: "",
     thumbnail: "./Motion.svg",
@@ -33,7 +33,7 @@ export const projects: Project[] = [
   },
   {
     id: "brand-social-campaign",
-    title: "Social Media",
+    title: "Dia da Advocacia",
     category: "Social Media",
     description: "",
     thumbnail: "/Adv-2.svg",
@@ -41,15 +41,48 @@ export const projects: Project[] = [
       "/Adv-1.svg",
       "/Adv-2.svg",
     ],
-    tools: ["Photoshop", "Illustrator", "Figma"],
+    tools: ["Photoshop", "Figma"],
+    role: "Designer & Diretor Criativo",
+    year: "2025",
+  },
+  {
+    id: "gym-social-campaing",
+    title: "Campanha de Treino",
+    category: "Social Media",
+    description: "",
+    thumbnail: "/Treino-2.svg",
+    images: [
+      "/Treino-1.svg",
+      "/Treino-2.svg",
+    ],
+    tools: ["Photoshop", "Figma"],
+    role: "Designer & Diretor Criativo",
+    year: "2025",
+  },
+  {
+    id: "cosmetic-social-campaing",
+    title: "C&C - Nutriely",
+    category: "Social Media",
+    description: "",
+    thumbnail: "/cc-4.svg",
+    images: [
+      "/cc-1.svg",
+      "/cc-2.svg",
+      "/cc-3.svg",
+      "/cc-4.svg",
+      "/cc-5.svg",
+      "/cc-6.svg",
+      
+    ],
+    tools: ["Photoshop","Figma"],
     role: "Designer & Diretor Criativo",
     year: "2025",
   },
     
-  /*{
-    id: "cinematic-edit",
-    title: "Edits",
-    category: "bg",
+  {
+    id: "valorant-edit",
+    title: "MY EYES - Valorant Montage",
+    category: "Edits",
     description: "",
     thumbnail: "./Frame-3.svg",
     images: [
@@ -57,9 +90,10 @@ export const projects: Project[] = [
     ],
     tools: ["Premiere Pro", "DaVinci Resolve", "After Effects"],
     role: "Editor & Colorista",
-    videoUrl: "https://youtu.be/Y-zTmkA46nU",
+    videoUrl: "https://www.youtube.com/embed/j6EvD0Riu5Y?si=q2y8pfPX7AaGbqwl",
     year: "2024",
   },
+  /*
   {
     id: "saas-landing",
     title: "Landing Pages",

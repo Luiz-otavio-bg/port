@@ -48,9 +48,9 @@ const Services = () => {
             transition={{ duration: 0.6 }}
             className="text-center mb-16"
           >
-            <p className="text-primary text-sm font-medium tracking-widest uppercase mb-2">Serviços</p>
+            <p className="text-sky-500 text-sm font-medium tracking-widest uppercase mb-2">Serviços</p>
             <h1 className="text-4xl md:text-6xl font-heading font-bold mb-4">
-              O que eu <span className="text-gradient">ofereço</span>
+              O que eu <span className="text-transparent bg-clip-text bg-gradient-to-r from-sky-500 via-blue-300 to-sky-500 bg-[length:200%_auto] hover:bg-right transition-all duration-500 cursor-default">ofereço</span>
             </h1>
             <p className="text-muted-foreground text-lg max-w-xl mx-auto">
               Soluções criativas completas para elevar a presença da sua marca.
@@ -65,9 +65,9 @@ const Services = () => {
                 whileInView={{ opacity: 1, y: 0 }}
                 viewport={{ once: true }}
                 transition={{ duration: 0.4, delay: i * 0.08 }}
-                className="group p-8 rounded-xl bg-card border border-border hover:border-primary/50 transition-all duration-300"
+                className="group p-8 rounded-xl bg-card border border-border hover:border-sky-500/50 transition-all duration-300"
               >
-                <service.icon className="text-primary mb-4 group-hover:scale-110 transition-transform" size={32} />
+                <service.icon className="text-sky-500 mb-4 group-hover:scale-110 transition-transform" size={32} />
                 <h3 className="text-xl font-heading font-semibold mb-3">{service.title}</h3>
                 <p className="text-muted-foreground text-sm leading-relaxed">{service.description}</p>
               </motion.div>
@@ -81,7 +81,7 @@ const Services = () => {
             transition={{ duration: 0.5 }}
             className="text-center mt-16"
           >
-            <Button asChild size="lg" className="glow-primary text-base px-10">
+            <Button asChild size="lg" className="glow-primary bg-gradient-to-r from-sky-500 via-white to-sky-500 bg-[length:200%_auto] hover:bg-right transition-all duration-500 text-black shadow-[0_0_20px_-5px_oklch(68.5% 0.169 237.323)] border-0 px-10">
               <Link to="/contato">
                 Solicitar Orçamento <ArrowRight className="ml-2" size={18} />
               </Link>
