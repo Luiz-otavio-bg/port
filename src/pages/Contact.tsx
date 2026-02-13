@@ -1,6 +1,6 @@
 import { useState } from "react";
 import { motion } from "framer-motion";
-import { Send, Instagram, Linkedin, Globe, Mail, MapPin } from "lucide-react";
+import { Send, Instagram, Linkedin, Globe, Mail, MapPin, Loader2 } from "lucide-react";
 import { Button } from "@/components/ui/button";
 import { Input } from "@/components/ui/input";
 import { Textarea } from "@/components/ui/textarea";
@@ -11,6 +11,7 @@ import Layout from "@/components/Layout";
 
 const Contact = () => {
   const { toast } = useToast();
+  const [isSubmitting, setIsSubmitting] = useState(false); // Novo estado
   const [formData, setFormData] = useState({
     name: "",
     email: "",
@@ -18,13 +19,34 @@ const Contact = () => {
     message: "",
   });
 
-  const handleSubmit = (e: React.FormEvent) => {
+  const handleSubmit = async (e: React.FormEvent) => {
     e.preventDefault();
-    toast({
-      title: "Mensagem enviada!",
-      description: "Obrigado pelo contato. Retornarei em breve!",
-    });
-    setFormData({ name: "", email: "", projectType: "", message: "" });
+    setIsSubmitting(true);
+
+    try {
+      const response = await fetch("/api/contact", {
+        method: "POST",
+        headers: { "Content-Type": "application/json" },
+        body: JSON.stringify(formData),
+      });
+
+      if (!response.ok) throw new Error("Erro ao enviar");
+
+      toast({
+        title: "Mensagem enviada!",
+        description: "Obrigado pelo contato. Retornarei em breve!",
+      });
+      
+      setFormData({ name: "", email: "", projectType: "", message: "" });
+    } catch (error) {
+      toast({
+        variant: "destructive",
+        title: "Ops! Algo deu errado",
+        description: "Não foi possível enviar sua mensagem. Tente novamente mais tarde.",
+      });
+    } finally {
+      setIsSubmitting(false);
+    }
   };
 
   return (
