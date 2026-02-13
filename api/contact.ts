@@ -15,7 +15,7 @@ export default async function handler(req: VercelRequest, res: VercelResponse) {
     try {
         const data = await resend.emails.send({
         from: 'Portfolio <onboarding@resend.dev>', // No plano grátis, use este remetente
-        to: ['seu-email@gmail.com'], // O e-mail que vai RECEBER a mensagem
+        to: ['bgoficial2022@gmail.com'], // O e-mail que vai RECEBER a mensagem
         subject: `Novo Contato: ${name} - ${projectType}`,
         html: `
             <h1>Nova mensagem do Portfolio</h1>
