@@ -2,62 +2,139 @@ import { Link } from "react-router-dom";
 import { motion } from "framer-motion";
 import { ArrowRight, Play, Palette, Monitor, Film, Smartphone, PenTool } from "lucide-react";
 import { Button } from "@/components/ui/button";
+import { Carousel, CarouselContent, CarouselItem, CarouselNext, CarouselPrevious } from "@/components/ui/carousel";
 import Layout from "@/components/Layout";
-import { projects } from "@/data/projects";
+import { useProjects } from "@/hooks/use-projects";
+import { aboutBio, aboutSkills, aboutStats } from "@/data/about";
 
 const services = [
-  { icon: Play, label: "Motion Graphics", description: "Animações" },
-  { icon: Smartphone, label: "Social Media", description: "Design para redes sociais" },
-  { icon: Film, label: "Edição de Vídeo", description: "Edits" },
-  { icon: Monitor, label: "Landing Pages", description: "Páginas de alta conversão" },
-  { icon: PenTool, label: "UI/UX Design", description: "Interfaces intuitivas" },
-  { icon: Palette, label: "Branding", description: "Identidade visual completa" },
+  { icon: Play, label: "Motion", description: "Movimento com ritmo e intencao" },
+  { icon: Smartphone, label: "Social Media", description: "Pecas que seguram o olhar" },
+  { icon: Film, label: "Edits", description: "Corte, cor e energia" },
+  { icon: Monitor, label: "Front-end", description: "Interfaces que saem do Figma" },
+  { icon: PenTool, label: "UI/UX", description: "Fluxos simples de entender" },
+  { icon: Palette, label: "Direcao visual", description: "Consistencia para a marca" },
 ];
 
-const featuredProjects = projects.slice(0, 4);
-
 const Index = () => {
+  const { projects } = useProjects();
+  const featuredProjects = projects.slice(0, 4);
+
   return (
     <Layout>
-      {/* Hero */}
-      <section className="min-h-[90vh] flex items-center relative overflow-hidden">
-        <div className="absolute inset-0 bg-[linear-gradient(to_right,#80808012_1px,transparent_1px),linear-gradient(to_bottom,#80808012_1px,transparent_1px)] bg-[size:390px_200px]" />
-        <div className="container mx-auto px-6 relative z-10">
+      <section className="relative flex min-h-[88vh] items-center overflow-hidden">
+        <div className="pointer-events-none absolute inset-x-0 top-20 text-center text-[16vw] font-bold uppercase leading-none text-foreground/[0.035]">
+          Portfolio
+        </div>
+        <div className="container relative z-10 mx-auto px-6">
           <motion.div
             initial={{ opacity: 0, y: 40 }}
             animate={{ opacity: 1, y: 0 }}
             transition={{ duration: 0.8 }}
-            className="max-w-4xl"
+            className="grid items-center gap-12 lg:grid-cols-[0.95fr_1.05fr]"
           >
-            <p className="text-sky-500 font-medium mb-4 tracking-widest uppercase text-sm">
-              Motion Design & Edição | UI/UX Design | Front-end Developer
-            </p>
-            <h1 className="text-5xl md:text-7xl lg:text-8xl font-bold mb-6">
-              Criando
-              <br />
-              <span className="text-transparent bg-clip-text bg-gradient-to-r from-sky-500 via-blue-300 to-sky-500 bg-[length:200%_auto] hover:bg-right transition-all duration-500">experiências</span>
-              <br />
-              visuais únicas.
-            </h1>
-            <p className="text-lg md:text-xl text-muted-foreground max-w-xl mb-10">
-              
-              Transformando ideias em design impactante.
-            </p>
-            <div className="flex flex-wrap gap-4">
-              <Button asChild size="lg" className="glow-white font-medium bg-gradient-to-r from-sky-500 via-white to-sky-500 bg-[length:200%_auto] hover:bg-right transition-all duration-500 text-black shadow-[0_0_20px_-5px_oklch(68.5% 0.169 237.323)] border-0 px-8">
-                <Link to="/projetos">
-                  Ver Projetos <ArrowRight className="ml-2" size={18} />
-                </Link>
-              </Button>
-              <Button asChild variant="outline" size="lg" className="text-base px-8">
-                <Link to="/contato">Fale Comigo</Link>
-              </Button>
+            <div>
+              <div className="mb-8 flex items-center gap-4 text-sm text-muted-foreground">
+                <img src="/logo.ico" alt="" className="h-8 w-8 object-contain invert dark:invert-0" />
+                <span className="h-px w-14 bg-border" />
+                <span>Portfolio pessoal</span>
+              </div>
+              <p className="mb-4 text-sm font-medium uppercase tracking-widest text-primary">
+                Front-end, motion e direcao visual
+              </p>
+              <h1 className="mb-6 text-5xl font-bold leading-[0.95] md:text-7xl lg:text-8xl">
+                Ideias
+                <br />
+                com forma,
+                <br />
+                ritmo e tela.
+              </h1>
+              <p className="mb-10 max-w-xl text-lg text-muted-foreground md:text-xl">
+                Eu crio paginas, identidades visuais e conteudos digitais com um pe no design e outro no codigo.
+              </p>
+              <div className="flex flex-wrap gap-4">
+                <Button asChild size="lg" className="glow-primary border-0 bg-primary px-8 font-medium text-primary-foreground hover:bg-primary/90">
+                  <Link to="/projetos">
+                    Ver projetos <ArrowRight className="ml-2" size={18} />
+                  </Link>
+                </Button>
+                <Button asChild variant="outline" size="lg" className="px-8 text-base">
+                  <Link to="/contato">Me chamar</Link>
+                </Button>
+              </div>
+            </div>
+
+            <div className="relative">
+              <div className="absolute -left-6 top-10 hidden text-xs uppercase tracking-widest text-muted-foreground [writing-mode:vertical-rl] lg:block">
+                Design + codigo
+              </div>
+              <div className="relative overflow-hidden rounded-lg border border-border bg-card p-5 shadow-2xl shadow-foreground/10">
+                <div className="mb-5 flex items-center justify-between text-xs text-muted-foreground">
+                  <span>Luiz Otavio</span>
+                  <span>2026</span>
+                </div>
+                <div className="grid items-end gap-6 md:grid-cols-[0.85fr_1.15fr]">
+                  <div className="pb-6">
+                    <Carousel opts={{ align: "start", loop: true }} className="w-full">
+                      <CarouselContent>
+                        <CarouselItem>
+                          <div className="min-h-[250px]">
+                            <p className="mb-8 text-xs uppercase tracking-widest text-primary">Sobre mim</p>
+                            <p className="mb-5 text-6xl font-light italic leading-none md:text-7xl">Ola</p>
+                            <p className="text-sm leading-relaxed text-muted-foreground">{aboutBio[0]}</p>
+                          </div>
+                        </CarouselItem>
+                        <CarouselItem>
+                          <div className="min-h-[250px]">
+                            <p className="mb-8 text-xs uppercase tracking-widest text-primary">Numeros</p>
+                            <div className="grid grid-cols-2 gap-6">
+                              {aboutStats.map((stat) => (
+                                <div key={stat.label}>
+                                  <p className="text-3xl font-light">{stat.value}</p>
+                                  <p className="mt-1 text-xs text-muted-foreground">{stat.label}</p>
+                                </div>
+                              ))}
+                            </div>
+                          </div>
+                        </CarouselItem>
+                        <CarouselItem>
+                          <div className="min-h-[250px]">
+                            <p className="mb-8 text-xs uppercase tracking-widest text-primary">Ferramentas</p>
+                            <div className="space-y-4">
+                              {aboutSkills.slice(0, 4).map((skill) => (
+                                <div key={skill.name}>
+                                  <div className="mb-2 flex items-center justify-between text-sm">
+                                    <span>{skill.name}</span>
+                                    <span className="text-muted-foreground">{skill.level}%</span>
+                                  </div>
+                                  <div className="h-1.5 overflow-hidden rounded-full bg-secondary">
+                                    <div className="h-full rounded-full bg-primary" style={{ width: `${skill.level}%` }} />
+                                  </div>
+                                </div>
+                              ))}
+                            </div>
+                          </div>
+                        </CarouselItem>
+                      </CarouselContent>
+                      <div className="mt-6 flex items-center gap-2">
+                        <CarouselPrevious className="static translate-y-0" />
+                        <CarouselNext className="static translate-y-0" />
+                      </div>
+                    </Carousel>
+                  </div>
+                  <img
+                    src="/about-photo.png"
+                    alt="Retrato de Luiz Otavio"
+                    className="mx-auto max-h-[460px] w-full object-contain grayscale"
+                    loading="eager"
+                  />
+                </div>
+              </div>
             </div>
           </motion.div>
         </div>
       </section>
 
-      {/* Featured Projects */}
       <section className="py-24">
         <div className="container mx-auto px-6">
           <motion.div
@@ -65,21 +142,18 @@ const Index = () => {
             whileInView={{ opacity: 1, y: 0 }}
             viewport={{ once: true }}
             transition={{ duration: 0.6 }}
-            className="flex items-end justify-between mb-12"
+            className="mb-12 flex items-end justify-between"
           >
             <div>
-              <p className="text-sky-500 text-sm font-medium tracking-widest uppercase mb-2">Trabalhos</p>
-              <h2 className="text-3xl md:text-5xl font-heading font-bold">Projetos em destaque</h2>
+              <p className="mb-2 text-sm font-medium uppercase tracking-widest text-primary">Trabalhos</p>
+              <h2 className="font-heading text-3xl font-bold md:text-5xl">Coisas que eu ja coloquei no mundo</h2>
             </div>
-            <Link
-              to="/projetos"
-              className="hidden md:flex items-center gap-2 text-transparent bg-clip-text bg-gradient-to-r from-sky-500 via-blue-300 to-sky-500 bg-[length:200%_auto] hover:bg-right transition-all duration-500 font-medium"
-            >
-              Ver todos <ArrowRight size={16} />
+            <Link to="/projetos" className="hidden items-center gap-2 font-medium text-primary transition-colors hover:text-primary/80 md:flex">
+              Ver portfolio <ArrowRight size={16} />
             </Link>
           </motion.div>
 
-          <div className="grid grid-cols-1 md:grid-cols-2 gap-6">
+          <div className="grid grid-cols-1 gap-6 md:grid-cols-2">
             {featuredProjects.map((project, i) => (
               <motion.div
                 key={project.id}
@@ -90,21 +164,19 @@ const Index = () => {
               >
                 <Link
                   to={`/projetos/${project.id}`}
-                  className="group block rounded-xl overflow-hidden bg-card border border-border hover:border-sky-500/50 transition-all duration-300"
+                  className="group block overflow-hidden rounded-lg border border-border bg-card transition-all duration-300 hover:border-primary/50"
                 >
                   <div className="aspect-video overflow-hidden">
                     <img
                       src={project.thumbnail}
                       alt={project.title}
-                      className="w-full h-full object-cover group-hover:scale-105 transition-transform duration-500"
+                      className="h-full w-full object-cover transition-transform duration-500 group-hover:scale-105"
                       loading="lazy"
                     />
                   </div>
                   <div className="p-5">
-                    <span className="text-xs font-medium text-sky-600 tracking-wider uppercase">
-                      {project.category}
-                    </span>
-                    <h3 className="text-lg font-heading font-semibold mt-1 group-hover:text-sky-600 transition-colors">
+                    <span className="text-xs font-medium uppercase tracking-wider text-primary">{project.category}</span>
+                    <h3 className="mt-1 font-heading text-lg font-semibold transition-colors group-hover:text-primary">
                       {project.title}
                     </h3>
                   </div>
@@ -115,27 +187,26 @@ const Index = () => {
 
           <div className="mt-8 text-center md:hidden">
             <Button asChild variant="outline">
-              <Link to="/projetos">Ver todos os projetos</Link>
+              <Link to="/projetos">Ver portfolio</Link>
             </Button>
           </div>
         </div>
       </section>
 
-      {/* Services Preview */}
-      <section className="py-24 bg-card/50">
+      <section className="bg-card/50 py-24">
         <div className="container mx-auto px-6">
           <motion.div
             initial={{ opacity: 0, y: 30 }}
             whileInView={{ opacity: 1, y: 0 }}
             viewport={{ once: true }}
             transition={{ duration: 0.6 }}
-            className="text-center mb-16"
+            className="mb-16 text-center"
           >
-            <p className="text-sky-500 text-sm font-medium tracking-widest uppercase mb-2">Especialidades</p>
-            <h2 className="text-3xl md:text-5xl font-heading font-bold">O que eu faço</h2>
+            <p className="mb-2 text-sm font-medium uppercase tracking-widest text-primary">Especialidades</p>
+            <h2 className="font-heading text-3xl font-bold md:text-5xl">Onde eu costumo entrar no projeto</h2>
           </motion.div>
 
-          <div className="grid grid-cols-2 md:grid-cols-3 gap-4 md:gap-6 max-w-4xl mx-auto">
+          <div className="mx-auto grid max-w-4xl grid-cols-2 gap-4 md:grid-cols-3 md:gap-6">
             {services.map((service, i) => (
               <motion.div
                 key={service.label}
@@ -143,21 +214,17 @@ const Index = () => {
                 whileInView={{ opacity: 1, y: 0 }}
                 viewport={{ once: true }}
                 transition={{ duration: 0.4, delay: i * 0.08 }}
-                className="group p-6 rounded-xl bg-card border border-border hover:border-sky-500/50 transition-all duration-300 text-center"
+                className="group rounded-lg border border-border bg-card p-6 text-center transition-all duration-300 hover:border-primary/50"
               >
-                <service.icon
-                  className="mx-auto mb-3 text-sky-500 group-hover:scale-110 transition-transform"
-                  size={28}
-                />
-                <h3 className="font-heading font-semibold text-sm md:text-base">{service.label}</h3>
-                <p className="text-xs text-muted-foreground mt-1 hidden md:block">{service.description}</p>
+                <service.icon className="mx-auto mb-3 text-primary transition-transform group-hover:scale-110" size={28} />
+                <h3 className="font-heading text-sm font-semibold md:text-base">{service.label}</h3>
+                <p className="mt-1 hidden text-xs text-muted-foreground md:block">{service.description}</p>
               </motion.div>
             ))}
           </div>
         </div>
       </section>
 
-      {/* CTA */}
       <section className="py-24">
         <div className="container mx-auto px-6 text-center">
           <motion.div
@@ -166,15 +233,15 @@ const Index = () => {
             viewport={{ once: true }}
             transition={{ duration: 0.6 }}
           >
-            <h2 className="text-3xl md:text-5xl font-heading font-bold mb-6 cursor-default">
-              Vamos criar algo <span className="text-transparent bg-clip-text bg-gradient-to-r from-sky-500 via-blue-300 to-sky-500 bg-[length:200%_auto] hover:bg-right transition-all duration-500 cursor-default">incrível</span> juntos?
+            <h2 className="mb-6 cursor-default font-heading text-3xl font-bold md:text-5xl">
+              Tem uma ideia parada? <span className="text-gradient">Vamos tirar ela do rascunho.</span>
             </h2>
-            <p className="text-muted-foreground text-lg mb-8 max-w-lg mx-auto">
-              Estou disponível para novos projetos e colaborações.
+            <p className="mx-auto mb-8 max-w-lg text-lg text-muted-foreground">
+              Me chama com o contexto, o prazo e o que voce quer colocar de pe. Eu te respondo com um caminho possivel.
             </p>
-            <Button asChild size="lg" className="glow-white font-medium bg-gradient-to-r from-sky-500 via-white to-sky-500 bg-[length:200%_auto] hover:bg-right transition-all duration-500 text-black shadow-[0_0_20px_-5px_oklch(68.5% 0.169 237.323)] border-0 px-8">
+            <Button asChild size="lg" className="glow-primary border-0 bg-primary px-8 font-medium text-primary-foreground hover:bg-primary/90">
               <Link to="/contato">
-                Entre em Contato <ArrowRight className="ml-2" size={18} />
+                Me contar a ideia <ArrowRight className="ml-2" size={18} />
               </Link>
             </Button>
           </motion.div>

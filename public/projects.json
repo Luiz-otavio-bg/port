@@ -1,0 +1,109 @@
+[
+  {
+    "id": "motion-reel-2024",
+    "title": "Motion Bouncy",
+    "category": "Motion Design",
+    "description": "Um teste de motion para brincar com peso, quique e timing. Fiz para treinar uma animacao curta que parece simples, mas depende muito do ritmo.",
+    "thumbnail": "/Motion.svg",
+    "images": ["/Motion-2.svg", "/Motion.svg"],
+    "tools": ["After Effects"],
+    "role": "Motion Designer",
+    "videoUrl": "https://www.youtube.com/embed/Y-zTmkA46nU?si=wZGyEGILkH_uWxxN",
+    "year": "2026"
+  },
+  {
+    "id": "brand-social-campaign",
+    "title": "Dia da Advocacia",
+    "category": "Social Media",
+    "description": "Arte para o Dia da Advocacia. A ideia foi manter um visual mais serio, sem ficar duro, e deixar a mensagem bater rapido no feed.",
+    "thumbnail": "/Adv-2.svg",
+    "images": ["/Adv-1.svg", "/Adv-2.svg"],
+    "tools": ["Photoshop", "Figma"],
+    "role": "Designer & Diretor Criativo",
+    "year": "2025"
+  },
+  {
+    "id": "gym-social-campaing",
+    "title": "Campanha de Treino",
+    "category": "Social Media",
+    "description": "Pecas para treino com uma pegada mais forte e direta. Quis trazer energia de academia sem encher a arte de informacao.",
+    "thumbnail": "/Treino-2.svg",
+    "images": ["/Treino-1.svg", "/Treino-2.svg"],
+    "tools": ["Photoshop", "Figma"],
+    "role": "Designer & Diretor Criativo",
+    "year": "2025"
+  },
+  {
+    "id": "cosmetic-social-campaing",
+    "title": "C&C - Nutriely",
+    "category": "Social Media",
+    "description": "Sequencia para cosmeticos, pensando em como as pecas ficariam uma ao lado da outra no feed. Trabalhei produto, cor e texto para parecer uma campanha so.",
+    "thumbnail": "/cc-4.svg",
+    "images": ["/cc-1.svg", "/cc-2.svg", "/cc-3.svg", "/cc-4.svg", "/cc-5.svg", "/cc-6.svg"],
+    "tools": ["Photoshop", "Figma"],
+    "role": "Designer & Diretor Criativo",
+    "year": "2025"
+  },
+  {
+    "id": "valorant-edit",
+    "title": "MY EYES - Valorant Montage",
+    "category": "Edits",
+    "description": "Montage de Valorant feita na base do timing: corte, beat, cor e impacto. Foi um edit para testar ritmo e deixar cada highlight respirar no momento certo.",
+    "thumbnail": "/Valo-2.svg",
+    "images": ["/Valo-1.svg", "/Valo-2.svg", "/Valo-3.svg", "/Valo-4.svg", "/Valo-5.svg"],
+    "tools": ["After Effects"],
+    "role": "Editor & Colorista",
+    "videoUrl": "https://www.youtube.com/embed/j6EvD0Riu5Y?si=q2y8pfPX7AaGbqwl",
+    "year": "2024"
+  },
+  {
+    "id": "valorant-edit-2",
+    "title": "Die For You X FE!N - Valorant Montage",
+    "category": "Edits",
+    "description": "Outro edit de Valorant, mais puxado para clima e transicao. Aqui eu queria que a musica carregasse a montagem, nao so acompanhasse os clipes.",
+    "thumbnail": "/fein-2.svg",
+    "images": ["/fein-1.svg", "/fein-2.svg", "/fein-3.svg", "/fein-4.svg", "/fein-5.svg"],
+    "tools": ["After Effects"],
+    "role": "Editor & Colorista",
+    "videoUrl": "https://www.youtube.com/embed/h4yAwE9-e6A?si=prQsWSmfhcEr8-hR",
+    "year": "2024"
+  },
+  {
+    "id": "glassmorphism",
+    "title": "Glassmorphism BG",
+    "category": "Front-end",
+    "description": "Um front para testar glassmorphism de verdade: blur, camadas, contraste e aquele cuidado para o efeito ficar bonito sem atrapalhar a leitura.",
+    "thumbnail": "/glass.svg",
+    "images": ["/glass2.svg", "/glass1.svg"],
+    "tools": ["Figma", "React", "Tailwind CSS", "Next.js"],
+    "role": "UI Designer & Dev",
+    "externalUrl": "https://glassmorphism-bg.vercel.app/",
+    "year": "2026"
+  },
+  {
+    "id": "frontend-security-checklist",
+    "title": "Frontend Security Checklist",
+    "category": "Front-end",
+    "description": "Criei esse painel enquanto estudava Cyber Security para organizar pontos que eu mesmo queria revisar em projetos front-end: token, header, login, CORS e afins.",
+    "thumbnail": "/security-checklist-1.svg",
+    "images": ["/security-checklist-1.svg", "/security-checklist-2.svg"],
+    "tools": ["React", "Vite", "Tailwind CSS", "Cyber Security"],
+    "role": "Front-end Dev & Cyber Security Student",
+    "externalUrl": "https://frontend-security-checklist.vercel.app",
+    "githubUrl": "https://github.com/Luiz-otavio-bg/frontend-security-checklist",
+    "year": "2026"
+  },
+  {
+    "id": "purple-landing-page",
+    "title": "Purple Landing Page",
+    "category": "Front-end",
+    "description": "Landing page da Purple, feita para apresentar a marca com uma pegada mais limpa, moderna e direta. A ideia foi deixar a pagina com cara de produto real, nao so tela bonita.",
+    "thumbnail": "/purple-landing-1.svg",
+    "images": ["/purple-landing-1.svg", "/purple-landing-2.svg"],
+    "tools": ["Next.js", "React", "Tailwind CSS"],
+    "role": "UI Designer & Dev",
+    "externalUrl": "https://purple-v7.vercel.app/",
+    "githubUrl": "https://github.com/Luiz-otavio-bg/purple-landing-page",
+    "year": "2026"
+  }
+]

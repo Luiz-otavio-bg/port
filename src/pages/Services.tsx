@@ -7,33 +7,33 @@ import Layout from "@/components/Layout";
 const services = [
   {
     icon: Play,
-    title: "Motion Graphics",
-    description: "Animações 2D/3D para vídeos, redes sociais e apresentações. Crio motion graphics que dão vida às suas ideias com impacto visual.",
+    title: "Motion",
+    description: "Animacoes, vinhetas e movimentos para quando a imagem parada nao da conta da mensagem.",
   },
   {
     icon: Smartphone,
     title: "Social Media",
-    description: "Design completo para redes sociais — posts, carrosséis, stories e reels com identidade visual consistente e engajadora.",
+    description: "Posts, carrosseis e pecas com cara de campanha, nao de arquivo jogado no feed.",
   },
   {
     icon: Film,
-    title: "Edição de Vídeo",
-    description: "Edição profissional com color grading, sound design e efeitos visuais. De videoclipes a filmes institucionais.",
+    title: "Edicao",
+    description: "Corte, ritmo, cor e acabamento para deixar o video mais direto e mais assistivel.",
   },
   {
     icon: Monitor,
-    title: "Landing Pages",
-    description: "Design e desenvolvimento de páginas de alta conversão com layouts modernos, responsivos e focados em resultados.",
+    title: "Front-end",
+    description: "Paginas e interfaces responsivas, com cuidado visual e codigo pronto para ir ao ar.",
   },
   {
     icon: PenTool,
-    title: "UI/UX Design",
-    description: "Interfaces intuitivas e atraentes, desde pesquisa e wireframes até protótipos de alta fidelidade no Figma.",
+    title: "UI/UX",
+    description: "Fluxos, telas e prototipos que ajudam a tirar a ideia da cabeca antes de virar produto.",
   },
   {
     icon: Palette,
-    title: "Identidade Visual",
-    description: "Criação de marcas completas — logo, paleta de cores, tipografia e manual de identidade visual.",
+    title: "Direcao visual",
+    description: "Paleta, tipografia, composicao e consistencia para o projeto parecer uma coisa so.",
   },
 ];
 
@@ -46,18 +46,18 @@ const Services = () => {
             initial={{ opacity: 0, y: 30 }}
             animate={{ opacity: 1, y: 0 }}
             transition={{ duration: 0.6 }}
-            className="text-center mb-16"
+            className="mb-16 text-center"
           >
-            <p className="text-sky-500 text-sm font-medium tracking-widest uppercase mb-2">Serviços</p>
-            <h1 className="text-4xl md:text-6xl font-heading font-bold mb-4">
-              O que eu <span className="text-transparent bg-clip-text bg-gradient-to-r from-sky-500 via-blue-300 to-sky-500 bg-[length:200%_auto] hover:bg-right transition-all duration-500 cursor-default">ofereço</span>
+            <p className="mb-2 text-sm font-medium uppercase tracking-widest text-primary">Servicos</p>
+            <h1 className="mb-4 font-heading text-4xl font-bold md:text-6xl">
+              Posso entrar no projeto <span className="text-gradient">do visual ao codigo</span>
             </h1>
-            <p className="text-muted-foreground text-lg max-w-xl mx-auto">
-              Soluções criativas completas para elevar a presença da sua marca.
+            <p className="mx-auto max-w-xl text-lg text-muted-foreground">
+              Se a ideia precisa virar tela, campanha, movimento ou uma mistura disso tudo, eu ajudo a dar forma.
             </p>
           </motion.div>
 
-          <div className="grid md:grid-cols-2 lg:grid-cols-3 gap-6 max-w-5xl mx-auto">
+          <div className="mx-auto grid max-w-5xl gap-6 md:grid-cols-2 lg:grid-cols-3">
             {services.map((service, i) => (
               <motion.div
                 key={service.title}
@@ -65,11 +65,11 @@ const Services = () => {
                 whileInView={{ opacity: 1, y: 0 }}
                 viewport={{ once: true }}
                 transition={{ duration: 0.4, delay: i * 0.08 }}
-                className="group p-8 rounded-xl bg-card border border-border hover:border-sky-500/50 transition-all duration-300"
+                className="group rounded-lg border border-border bg-card p-8 transition-all duration-300 hover:border-primary/50"
               >
-                <service.icon className="text-sky-500 mb-4 group-hover:scale-110 transition-transform" size={32} />
-                <h3 className="text-xl font-heading font-semibold mb-3">{service.title}</h3>
-                <p className="text-muted-foreground text-sm leading-relaxed">{service.description}</p>
+                <service.icon className="mb-4 text-primary transition-transform group-hover:scale-110" size={32} />
+                <h3 className="mb-3 font-heading text-xl font-semibold">{service.title}</h3>
+                <p className="text-sm leading-relaxed text-muted-foreground">{service.description}</p>
               </motion.div>
             ))}
           </div>
@@ -79,11 +79,11 @@ const Services = () => {
             whileInView={{ opacity: 1, y: 0 }}
             viewport={{ once: true }}
             transition={{ duration: 0.5 }}
-            className="text-center mt-16"
+            className="mt-16 text-center"
           >
-            <Button asChild size="lg" className="glow-primary bg-gradient-to-r from-sky-500 via-white to-sky-500 bg-[length:200%_auto] hover:bg-right transition-all duration-500 text-black shadow-[0_0_20px_-5px_oklch(68.5% 0.169 237.323)] border-0 px-10">
+            <Button asChild size="lg" className="glow-primary border-0 bg-primary px-10 text-primary-foreground hover:bg-primary/90">
               <Link to="/contato">
-                Solicitar Orçamento <ArrowRight className="ml-2" size={18} />
+                Me contar o projeto <ArrowRight className="ml-2" size={18} />
               </Link>
             </Button>
           </motion.div>

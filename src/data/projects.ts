@@ -1,4 +1,4 @@
-export type ProjectCategory = "Motion Design" | "Social Media" | "Edits" | "Landing Pages" | "UI/UX";
+export type ProjectCategory = "Motion Design" | "Social Media" | "Edits" | "Front-end";
 
 export interface Project {
   id: string;
@@ -12,6 +12,7 @@ export interface Project {
   videoUrl?: string;
   externalUrl?: string;
   figmaUrl?: string;
+  githubUrl?: string;
   year: string;
 }
 
@@ -20,7 +21,7 @@ export const projects: Project[] = [
     id: "motion-reel-2024",
     title: "Motion Bouncy",
     category: "Motion Design",
-    description: "",
+    description: "Um teste de motion para brincar com peso, quique e timing. Fiz para treinar uma animacao curta que parece simples, mas depende muito do ritmo.",
     thumbnail: "./Motion.svg",
     images: [
       "/Motion-2.svg",
@@ -35,7 +36,7 @@ export const projects: Project[] = [
     id: "brand-social-campaign",
     title: "Dia da Advocacia",
     category: "Social Media",
-    description: "",
+    description: "Arte para o Dia da Advocacia. A ideia foi manter um visual mais serio, sem ficar duro, e deixar a mensagem bater rapido no feed.",
     thumbnail: "/Adv-2.svg",
     images: [
       "/Adv-1.svg",
@@ -49,7 +50,7 @@ export const projects: Project[] = [
     id: "gym-social-campaing",
     title: "Campanha de Treino",
     category: "Social Media",
-    description: "",
+    description: "Pecas para treino com uma pegada mais forte e direta. Quis trazer energia de academia sem encher a arte de informacao.",
     thumbnail: "/Treino-2.svg",
     images: [
       "/Treino-1.svg",
@@ -63,7 +64,7 @@ export const projects: Project[] = [
     id: "cosmetic-social-campaing",
     title: "C&C - Nutriely",
     category: "Social Media",
-    description: "",
+    description: "Sequencia para cosmeticos, pensando em como as pecas ficariam uma ao lado da outra no feed. Trabalhei produto, cor e texto para parecer uma campanha so.",
     thumbnail: "/cc-4.svg",
     images: [
       "/cc-1.svg",
@@ -83,7 +84,7 @@ export const projects: Project[] = [
     id: "valorant-edit",
     title: "MY EYES - Valorant Montage",
     category: "Edits",
-    description: "",
+    description: "Montage de Valorant feita na base do timing: corte, beat, cor e impacto. Foi um edit para testar ritmo e deixar cada highlight respirar no momento certo.",
     thumbnail: "/Valo-2.svg",
     images: [
       "/Valo-1.svg",
@@ -101,7 +102,7 @@ export const projects: Project[] = [
     id: "valorant-edit-2",
     title: "Die For You X FE!N - Valorant Montage",
     category: "Edits",
-    description: "",
+    description: "Outro edit de Valorant, mais puxado para clima e transicao. Aqui eu queria que a musica carregasse a montagem, nao so acompanhasse os clipes.",
     thumbnail: "/fein-2.svg",
     images: [
       "/fein-1.svg",
@@ -115,84 +116,59 @@ export const projects: Project[] = [
     videoUrl: "https://www.youtube.com/embed/h4yAwE9-e6A?si=prQsWSmfhcEr8-hR",
     year: "2024",
   },
-  /*
+  
   {
-    id: "saas-landing",
-    title: "Landing Pages",
-    category: "BG",
-    description: "",
-    thumbnail: "./Frame-4.svg",
+    id: "glassmorphism",
+    title: "Glassmorphism BG",
+    category: "Front-end",
+    description: "Um front para testar glassmorphism de verdade: blur, camadas, contraste e aquele cuidado para o efeito ficar bonito sem atrapalhar a leitura.",
+    thumbnail: "./glass.svg",
     images: [
-      "https://images.unsplash.com/photo-1460925895917-afdab827c52f?w=1200&h=800&fit=crop",
-      "https://images.unsplash.com/photo-1551288049-bebda4e38f71?w=1200&h=800&fit=crop",
+      "/glass2.svg",
+      "/glass1.svg",
     ],
-    tools: ["Figma", "React", "Tailwind CSS"],
+    tools: ["Figma", "React", "Tailwind CSS", "Next.js"],
     role: "UI Designer & Dev",
-    externalUrl: "https://example.com",
-    year: "2024",
+    externalUrl: "https://glassmorphism-bg.vercel.app/",
+    year: "2026",
   },
   {
-    id: "fintech-app",
-    title: "Fintech App — UI/UX",
-    category: "UI/UX",
-    description: "",
-    thumbnail: "https://images.unsplash.com/photo-1563986768609-322da13575f2?w=600&h=400&fit=crop",
+    id: "frontend-security-checklist",
+    title: "Frontend Security Checklist",
+    category: "Front-end",
+    description: "Criei esse painel enquanto estudava Cyber Security para organizar pontos que eu mesmo queria revisar em projetos front-end: token, header, login, CORS e afins.",
+    thumbnail: "/security-checklist-1.svg",
     images: [
-      "https://images.unsplash.com/photo-1563986768609-322da13575f2?w=1200&h=800&fit=crop",
-      "https://images.unsplash.com/photo-1512941937669-90a1b58e7e9c?w=1200&h=800&fit=crop",
+      "/security-checklist-1.svg",
+      "/security-checklist-2.svg",
     ],
-    tools: ["Figma", "FigJam", "Maze"],
-    role: "UI/UX Designer",
-    figmaUrl: "https://figma.com",
-    year: "2023",
+    tools: ["React", "Vite", "Tailwind CSS", "Cyber Security"],
+    role: "Front-end Dev & Cyber Security Student",
+    externalUrl: "https://frontend-security-checklist.vercel.app",
+    githubUrl: "https://github.com/Luiz-otavio-bg/frontend-security-checklist",
+    year: "2026",
   },
   {
-    id: "music-video-edit",
-    title: "Music Video Edit",
-    category: "Edits",
-    description: "",
-    thumbnail: "https://images.unsplash.com/photo-1493225457124-a3eb161ffa5f?w=600&h=400&fit=crop",
+    id: "purple-landing-page",
+    title: "Purple Landing Page",
+    category: "Front-end",
+    description: "Landing page da Purple, feita para apresentar a marca com uma pegada mais limpa, moderna e direta. A ideia foi deixar a pagina com cara de produto real, nao so tela bonita.",
+    thumbnail: "/purple-landing-1.svg",
     images: [
-      "https://images.unsplash.com/photo-1493225457124-a3eb161ffa5f?w=1200&h=800&fit=crop",
+      "/purple-landing-1.svg",
+      "/purple-landing-2.svg",
     ],
-    tools: ["Premiere Pro", "After Effects"],
-    role: "Editor",
-    videoUrl: "https://www.youtube.com/embed/dQw4w9WgXcQ",
-    year: "2023",
+    tools: ["Next.js", "React", "Tailwind CSS"],
+    role: "UI Designer & Dev",
+    externalUrl: "https://purple-v7.vercel.app/",
+    githubUrl: "https://github.com/Luiz-otavio-bg/purple-landing-page",
+    year: "2026",
   },
-  {
-    id: "ecommerce-redesign",
-    title: "E-commerce Redesign",
-    category: "UI/UX",
-    description: "",
-    thumbnail: "https://images.unsplash.com/photo-1556742049-0cfed4f6a45d?w=600&h=400&fit=crop",
-    images: [
-      "https://images.unsplash.com/photo-1556742049-0cfed4f6a45d?w=1200&h=800&fit=crop",
-    ],
-    tools: ["Figma", "Hotjar", "Google Analytics"],
-    role: "UX Designer",
-    figmaUrl: "https://figma.com",
-    year: "2023",
-  },
-  {
-    id: "social-media-pack",
-    title: "Social Media Pack — Fitness",
-    category: "Social Media",
-    description: "",
-    thumbnail: "https://images.unsplash.com/photo-1571019614242-c5c5dee9f50b?w=600&h=400&fit=crop",
-    images: [
-      "https://images.unsplash.com/photo-1571019614242-c5c5dee9f50b?w=1200&h=800&fit=crop",
-    ],
-    tools: ["Photoshop", "Illustrator", "Canva"],
-    role: "Designer Gráfico",
-    year: "2023",
-  },*/
 ];
 
 export const categories: ProjectCategory[] = [
   "Motion Design",
   "Social Media",
   "Edits",
-  "Landing Pages",
-  "UI/UX",
+  "Front-end",
 ];

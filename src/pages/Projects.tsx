@@ -3,9 +3,11 @@ import { Link } from "react-router-dom";
 import { motion, AnimatePresence } from "framer-motion";
 import Layout from "@/components/Layout";
 import { Badge } from "@/components/ui/badge";
-import { projects, categories, type ProjectCategory } from "@/data/projects";
+import { categories, type ProjectCategory } from "@/data/projects";
+import { useProjects } from "@/hooks/use-projects";
 
 const Projects = () => {
+  const { projects } = useProjects();
   const [activeFilter, setActiveFilter] = useState<ProjectCategory | "Todos">("Todos");
 
   const filtered = activeFilter === "Todos"
@@ -27,7 +29,6 @@ const Projects = () => {
             </h1>
           </motion.div>
 
-          {/* Filters */}
           <div className="flex flex-wrap gap-3 mb-12">
             {["Todos", ...categories].map((cat) => (
               <button
@@ -44,7 +45,6 @@ const Projects = () => {
             ))}
           </div>
 
-          {/* Grid */}
           <motion.div layout className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-6">
             <AnimatePresence mode="popLayout">
               {filtered.map((project) => (

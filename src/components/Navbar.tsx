@@ -2,6 +2,7 @@ import { useState } from "react";
 import { Link, useLocation } from "react-router-dom";
 import { Menu, X } from "lucide-react";
 import { motion, AnimatePresence } from "framer-motion";
+import ThemeToggle from "./ThemeToggle";
 
 const navItems = [
   { label: "Home", path: "/" },
@@ -16,22 +17,24 @@ const Navbar = () => {
   const location = useLocation();
 
   return (
-    <nav className="fixed top-0 left-0 right-0 z-50 bg-background/20 backdrop-blur-xl border-b border-border">
-      <div className="container mx-auto px-6 h-16 flex items-center justify-between">
-        <Link to="/" className="text-xl font-bold text-white">
-          BG
+    <nav className="fixed left-0 right-0 top-0 z-50 border-b border-border bg-background/80 backdrop-blur-xl">
+      <div className="container mx-auto flex h-16 items-center justify-between px-6">
+        <Link to="/" className="flex items-center gap-3" aria-label="Luiz Otavio - Home">
+          <img src="/logo.ico" alt="" className="h-8 w-8 object-contain invert dark:invert-0" />
+          <span className="hidden text-sm font-semibold uppercase tracking-[0.28em] text-foreground sm:inline">
+            Luiz Otavio
+          </span>
         </Link>
 
-        {/* Desktop */}
-        <div className="hidden md:flex items-center gap-8">
+        <div className="hidden items-center gap-8 md:flex">
           {navItems.map((item) => (
             <Link
               key={item.path}
               to={item.path}
-              className={`text-sm font-medium transition-colors hover:text-sky-500 ${
+              className={`text-sm font-medium transition-colors hover:text-primary ${
                 location.pathname === item.path
-                  ? "text-sky-500"
-                  : "text-white"
+                  ? "text-primary"
+                  : "text-muted-foreground"
               }`}
             >
               {item.label}
@@ -39,13 +42,16 @@ const Navbar = () => {
           ))}
         </div>
 
-        
-        <button
-          className="md:hidden text-foreground"
-          onClick={() => setIsOpen(!isOpen)}
-        >
-          {isOpen ? <X size={24} /> : <Menu size={24} />}
-        </button>
+        <div className="flex items-center gap-3">
+          <ThemeToggle />
+          <button
+            className="inline-flex h-9 w-9 items-center justify-center rounded-full border border-border bg-card text-foreground md:hidden"
+            onClick={() => setIsOpen(!isOpen)}
+            aria-label={isOpen ? "Fechar menu" : "Abrir menu"}
+          >
+            {isOpen ? <X size={18} /> : <Menu size={18} />}
+          </button>
+        </div>
       </div>
 
       
@@ -55,9 +61,9 @@ const Navbar = () => {
             initial={{ opacity: 0, height: 0 }}
             animate={{ opacity: 1, height: "auto" }}
             exit={{ opacity: 0, height: 0 }}
-            className="md:hidden bg-background/95 backdrop-blur-xl border-b border-border overflow-hidden"
+            className="overflow-hidden border-b border-border bg-background/95 backdrop-blur-xl md:hidden"
           >
-            <div className="container mx-auto px-6 py-4 flex flex-col gap-4">
+            <div className="container mx-auto flex flex-col gap-4 px-6 py-4">
               {navItems.map((item) => (
                 <Link
                   key={item.path}
@@ -65,7 +71,7 @@ const Navbar = () => {
                   onClick={() => setIsOpen(false)}
                   className={`text-lg font-heading font-semibold transition-colors ${
                     location.pathname === item.path
-                      ? "text-sky-500"
+                      ? "text-primary"
                       : "text-muted-foreground"
                   }`}
                 >

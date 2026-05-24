@@ -1,16 +1,49 @@
 import { useParams, Link } from "react-router-dom";
 import { motion } from "framer-motion";
-import { ArrowLeft, ExternalLink, Figma, Play } from "lucide-react";
+import { ArrowLeft, ExternalLink, Figma, Github, Play } from "lucide-react";
 import { Button } from "@/components/ui/button";
 import { Badge } from "@/components/ui/badge";
 import Layout from "@/components/Layout";
-import { projects } from "@/data/projects";
+import { useProjects } from "@/hooks/use-projects";
+
+const getYouTubeEmbedUrl = (url: string) => {
+  try {
+    const parsedUrl = new URL(url);
+
+    if (parsedUrl.hostname.includes("youtu.be")) {
+      return `https://www.youtube.com/embed/${parsedUrl.pathname.replace("/", "")}`;
+    }
+
+    if (parsedUrl.pathname.startsWith("/watch")) {
+      const videoId = parsedUrl.searchParams.get("v");
+      return videoId ? `https://www.youtube.com/embed/${videoId}` : url;
+    }
+
+    if (parsedUrl.pathname.startsWith("/shorts/")) {
+      return `https://www.youtube.com/embed/${parsedUrl.pathname.split("/")[2]}`;
+    }
+
+    return url;
+  } catch {
+    return url;
+  }
+};
+
+const getYouTubeWatchUrl = (url: string) => {
+  const embedUrl = getYouTubeEmbedUrl(url);
+  const videoId = embedUrl.match(/youtube\.com\/embed\/([^?]+)/)?.[1];
+
+  return videoId ? `https://www.youtube.com/watch?v=${videoId}` : url;
+};
 
 const ProjectDetail = () => {
   const { id } = useParams();
+  const { projects, isLoading } = useProjects();
   const project = projects.find((p) => p.id === id);
+  const videoEmbedUrl = project?.videoUrl ? getYouTubeEmbedUrl(project.videoUrl) : "";
+  const videoWatchUrl = project?.videoUrl ? getYouTubeWatchUrl(project.videoUrl) : "";
 
-  if (!project) {
+  if (!project && !isLoading) {
     return (
       <Layout>
         <div className="py-24 text-center container mx-auto px-6">
@@ -20,6 +53,16 @@ const ProjectDetail = () => {
               <ArrowLeft className="mr-2" size={16} /> Voltar aos projetos
             </Link>
           </Button>
+        </div>
+      </Layout>
+    );
+  }
+
+  if (!project) {
+    return (
+      <Layout>
+        <div className="py-24 text-center container mx-auto px-6">
+          <p className="text-muted-foreground">Carregando projeto...</p>
         </div>
       </Layout>
     );
@@ -46,12 +89,18 @@ const ProjectDetail = () => {
             <h1 className="text-4xl md:text-5xl font-heading font-bold mb-6">{project.title}</h1>
             <p className="text-lg text-muted-foreground max-w-3xl mb-10">{project.description}</p>
 
-            {/* External links */}
             <div className="flex flex-wrap gap-3 mb-12">
+              {videoEmbedUrl && (
+                <Button asChild variant="outline" size="sm">
+                  <a href="#video">
+                    <Play size={14} className="mr-2" /> Assistir video
+                  </a>
+                </Button>
+              )}
               {project.externalUrl && (
                 <Button asChild variant="outline" size="sm">
                   <a href={project.externalUrl} target="_blank" rel="noopener noreferrer">
-                    <ExternalLink size={14} className="mr-2" /> Ver ao Vivo
+                    <ExternalLink size={14} className="mr-2" /> Acessar projeto
                   </a>
                 </Button>
               )}
@@ -62,24 +111,41 @@ const ProjectDetail = () => {
                   </a>
                 </Button>
               )}
+              {project.githubUrl && (
+                <Button asChild variant="outline" size="sm">
+                  <a href={project.githubUrl} target="_blank" rel="noopener noreferrer">
+                    <Github size={14} className="mr-2" /> Ver codigo
+                  </a>
+                </Button>
+              )}
             </div>
 
-            {/* Video embed */}
-            {project.videoUrl && (
-              <div className="mb-12">
+            {videoEmbedUrl && (
+              <div id="video" className="mb-12 scroll-mt-24">
+                <div className="mb-4 flex flex-wrap items-center justify-between gap-3">
+                  <h2 className="font-heading text-2xl font-bold">Video do projeto</h2>
+                  <a
+                    href={videoWatchUrl}
+                    target="_blank"
+                    rel="noopener noreferrer"
+                    className="inline-flex items-center text-sm font-medium text-primary hover:text-primary/80"
+                  >
+                    Abrir no YouTube <ExternalLink size={14} className="ml-2" />
+                  </a>
+                </div>
                 <div className="aspect-video rounded-xl overflow-hidden bg-card border border-border">
                   <iframe
-                    src={project.videoUrl}
+                    src={videoEmbedUrl}
                     title={project.title}
                     className="w-full h-full"
                     allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture"
+                    referrerPolicy="strict-origin-when-cross-origin"
                     allowFullScreen
                   />
                 </div>
               </div>
             )}
 
-            {/* Images */}
             <div className="grid gap-6 mb-12">
               {project.images.map((img, i) => (
                 <motion.div
@@ -95,7 +161,6 @@ const ProjectDetail = () => {
               ))}
             </div>
 
-            {/* Tools */}
             <div>
               <h3 className="text-sm text-muted-foreground uppercase tracking-widest mb-3">Ferramentas</h3>
               <div className="flex flex-wrap gap-2">
